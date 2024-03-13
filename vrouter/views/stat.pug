@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title Overview Stats
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='refresh' content='120')
+    link(rel='stylesheet', href='static/stat.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js')
+    script(src='https://cdn.jsdelivr.net/npm/chart.js')
+  body
+    .container
+      h1.title Overview Stats
+      button#trafficButton(onclick='window.location.href="traffic"') Show Traffic Info
+      div#accessChartContainer
+        canvas#accessCount
+      
+      div#trafficChartContainer
+        canvas#trafficPerHour
+
+      div#deviceChartContainer
+        canvas#deviceCount
+      
+    
+
+    script.
+      var deviceCount = !{JSON.stringify(deviceCount)};
+      var accessCount = !{JSON.stringify(accessCount)};
+      var trafficPerHour = !{JSON.stringify(trafficPerHour)};
+    script(src='static/stat.js')

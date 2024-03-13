@@ -1,0 +1,49 @@
+body {
+    background: #f5f5dc;
+    font-family: 'Courier New', Courier, monospace;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    margin: auto;
+    color: red;
+    width: 50%;
+    padding: 20px;
+}
+
+.title {
+    text-align: center;
+    color: #006400;
+}
+
+.chart-container {
+    background: black;
+    margin: 20px 0;
+    padding: 20px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+canvas {
+    max-width: 100%;
+    color: white;
+
+}
+/* For tablets and smaller screens */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    canvas {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+#trafficButton {
+    background-color: red;
+    color: white;
+    display: block;
+    margin: 0 auto;
+}

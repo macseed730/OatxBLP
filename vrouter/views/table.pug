@@ -1,0 +1,45 @@
+doctype html
+html
+  head
+    meta(http-equiv='refresh' content='60')
+    title Traffic Table
+    link(rel='stylesheet', type='text/css', href='static/table.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js')
+  body
+    .container
+      h1.title Traffic Table
+      table#dataTable
+        thead
+          tr
+            th IP
+            th Device Type
+            th Autograb
+            th Allowed Access
+            th Log Info
+            th Extra Data
+        tbody
+          each val in data
+            tr
+              td=val.ip
+              td=val.deviceType
+              td=val.autograb
+              td=val.allowedAccess
+              td
+                button(onclick=`openLogModal('${escape(JSON.stringify(val))}')`) Open
+              td
+                button(onclick=`viewTrafficModal('${escape(JSON.stringify(val))}')`) View
+      .pagination
+        if page <= 1
+          button#prevBtn(disabled) Previous
+        else 
+         button#prevBtn(type='button', onclick=`location.href='traffic?page=${page-1}'`) Previous
+        
+        button#nextBtn(type='button', onclick=`location.href='traffic?page=${page+1}'`) Next
+
+    // Info Modal
+    #popupModal.modal
+      .modal-content
+        span.close &times;
+        pre#infoText
+    
+    script(src='static/table.js')
